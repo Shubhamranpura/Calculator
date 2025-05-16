@@ -1,0 +1,18 @@
+.numbers > li {
+  background-color: rgba(25, 216, 216, 0.497);
+  display: flex;
+  justify-content: center;
+  border-radius: 10PX;
+  font-size: 35px;
+  height: 80px;
+}
+
+.symbols > li{
+  background-color: rgba(216, 206, 25, 0.497);
+  display: flex;
+  justify-content: center;
+  border-radius: 10PX;
+  font-size: 35px;
+  width: 200px;
+  height: 80px;
+}
