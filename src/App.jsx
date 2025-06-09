@@ -5,7 +5,6 @@ import { FaBackspace } from 'react-icons/fa';
 function App() {
   const CalculateAreaRef = useRef();
   const [Value, setValue] = useState('')
-  const [getAnswer , setGetanswer] = useState(false)
 
   useEffect(() => {
     if (!CalculateAreaRef.current.innerText) {
@@ -19,19 +18,17 @@ function App() {
   const handleButtonClick = (e) => {
     const digit = e.target.innerText.toLocaleString('en-In')
     setValue((Value) => Value + digit)
-    // console.log(Value)
   }
 
   const handleSymbolClick = (e) => {
     const symbole = e.target.innerText
-    // console.log(symbole)
-    // console.log(typeof symbole)
+   
     if (symbole === undefined || symbole === 'AC' || symbole === "=" ) {
       return null
     }
-    else { // console.log(Value)
+    else { 
       setValue((Value) => Value + symbole)
-      // console.log(Value)
+     
     }
   }
 
@@ -40,24 +37,18 @@ function App() {
   }
 
   const handleAllClear = () => {
-    // console.log(Value)
     setValue("")
-    // console.log(Value)
     }
 
   const handleAnswer = () =>{
-    // console.log(Value)
     if (Value.includes('%')){
       const expression = Value.split("%").join("") + '/100'
-      console.log(expression)
       const answer = eval(expression)
       setValue(answer.toLocaleString('en-IN'))
-      setGetanswer(prev => !prev)
     }
     else{
       const answer = eval(Value)
       setValue(answer.toLocaleString('en-IN'))
-      setGetanswer(prev => !prev)
 
     }
   }  
@@ -68,7 +59,6 @@ function App() {
           className=" p-3 text-[40px] text-[#000000] w-[90 %] mr-[44px]  ml-3 text-left bg-[#b1dfe9] rounded-lg h-[100px]"
           ref={CalculateAreaRef}
           > 
-          {getAnswer && <span> = </span>}
           {Value}
         </div>
         <div className='flex gap-5'>
